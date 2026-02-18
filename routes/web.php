@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\TermsController;
+use App\Http\Controllers\SubscriptionFormController;
 
 // Route::view('/','welcome')->name('home');
 
@@ -22,3 +23,5 @@ Route::get('/terms', 		[TermsController::class, 'index'])->name('terms.index');
 // Blog Category //
 Route::get('/category/{slug}',[CategoryController::class,'single'])->name('category.single');
 
+// Subscription //
+Route::post('/subscription',[SubscriptionFormController::class,'subscriptionFormInfo'])->name('subscription');

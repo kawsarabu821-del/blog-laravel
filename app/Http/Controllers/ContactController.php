@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\BLog;
 //use App\Models\Blog; // Make sure you have a Blog model
 
 class ContactController extends Controller
@@ -9,7 +10,8 @@ class ContactController extends Controller
     public function index()
     {
         //$contacts = Contact::latest()->paginate(10);
-        return view('pages.contact');
+        $latest_posts = Blog::latest()->limit(5)->get();
+        return view('pages.contact',compact('latest_posts'));
         //return view('contacts.index', compact('contacts'));
     }
 

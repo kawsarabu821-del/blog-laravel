@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
-    <!-- meta -->
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
-    <meta name="author" content="rony">
-    <meta name="csrf-token" content="">
-    <meta property="og:image" content="assets/images/favicon.png">
-    <meta property="og:site_name" content="Blog">
-    <meta property="og:title" content="top business news - Blog">
-    <meta property="og:url" content="https://blog.com">
-    <meta property="og:type" content="article">
-    <meta name="description"
-        content="top business news blog.">
-    <meta name="keywords"
-        content="blog, business">
-    <!-- Favicon -->
-<link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@yield('title')</title>
+
+<!-- meta -->
+<meta name="robots" content="index,follow">
+<meta name="googlebot" content="index,follow">
+<meta name="author" content="rony">
+<meta name="csrf-token" content="">
+<meta property="og:image" content="{{ asset('assets/images/' . getSiteSettings()->favicon) }}">
+<meta property="og:site_name" content="Blog">
+<meta property="og:title" content="top business news - Blog">
+<meta property="og:url" content="https://blog.com">
+<meta property="og:type" content="article">
+<meta name="description" content="top business news blog.">
+<meta name="keywords" content="blog, business">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="{{ asset('assets/images/' . getSiteSettings()->favicon) }}">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 </head>
 <body>
@@ -44,7 +45,7 @@
             <nav class="navbar navbar-expand-lg p-0">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="{{url('/')}}">
-                        <img src="assets/images/logo2.png" class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/images/' . getSiteSettings()->logo)}}" class="img-fluid" alt="Blog">
                     </a>
                     <div class="d-flex align-items-center d-block d-lg-none">
                         <div class="me-2">

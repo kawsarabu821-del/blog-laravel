@@ -10,16 +10,32 @@
                         </div>
                     </div>
                     <div class="newsletter-form">
-                        <form action="#" method="post">
+                        @if(session('success'))
+                         <div class="alert alert-success">
+                            {{ session('success') }}
+                           </div>
+                        @endif
+                        <form action="{{ route('subscription')}}" method="post">
+                            @csrf;
                             <div class="input-group">
                                 <input name="email" type="email" class="form-control shadow-none"
-                                    placeholder="Enter your email address" required="">
+                                 placeholder="Enter your email address" required="">
                                 <button type="submit" class="input-group-text bg-primary border-primary text-white">
                                     Subscribe
                                     <img src="assets/images/icons/subscribe.svg" alt="Subscribe">
                                 </button>
                             </div>
                         </form>
+                    </br>
+                        @if($errors->any())
+                         <div class="alert alert-danger">
+                            <ul>
+                                @foreach( $errors->all() as $error )
+                                  <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                           </div>
+                         @endif
                     </div>
                 </div>
             </div>
@@ -40,7 +56,7 @@
                                         </div>
                                         <div>
                                             <h5>For Support</h5>
-                                            <h6><a href="tel:+393246822222">+88 01234567895</a></h6>
+                                            <h6><a href="{{getSiteSettings()->phone}}">{{getSiteSettings()->phone}}</a></h6>
                                         </div>
                                     </div>
                                     <div class="site_info d-flex align-items-center mb-4">
@@ -49,31 +65,31 @@
                                         </div>
                                         <div>
                                             <h5>Send Us Email</h5>
-                                            <h6><a
-                                                    href="mailto:info@blog.com">info@blog.com</a>
+                                            <h6>
+                                            <a href="{{getSiteSettings()->email}}">{{getSiteSettings()->email}}</a>
                                             </h6>
                                         </div>
                                     </div>
                                 </div>
                                 <ul class="social-icons">
                                     <li>
-                                        <a href="#" title="facebook" target="_blank">
+                                        <a href="{{getSiteSettings()->fb}}" title="facebook" target="_blank">
                                             <i class="fab fa-facebook-f"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="instagram" target="_blank">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="twitter" target="_blank">
+                                        <a href="{{getSiteSettings()->twitter}}" title="twitter" target="_blank">
                                             <i class="fab fa-x-twitter"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" title="youtube" target="_blank">
+                                        <a href="{{getSiteSettings()->youtube}}" title="youtube" target="_blank">
                                             <i class="fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{getSiteSettings()->pintarest}}" title="pintarest" target="_blank">
+                                           <i class="fa-brands fa-pinterest-p"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -116,7 +132,7 @@
             </div>
         </div>
         <div class="footer__bottom py-5 text-center">
-            Copyright © 2024 All Rights Reserved
+            &copy; {{ date('Y') }} All Rights Reserved
         </div>
     </footer>
 

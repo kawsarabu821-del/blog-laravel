@@ -1,0 +1,7 @@
+.footer_widget.latest_post li {
+    margin: 5px 0px;
+}
+
+.footer_widget.latest_post li a {
+    font-size: 13px;
+}
